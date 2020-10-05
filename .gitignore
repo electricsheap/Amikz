@@ -1,3 +1,4 @@
 .git
+
+# ignore sound files which can get very large
 resources/sounds/*
-resources/textures/*
