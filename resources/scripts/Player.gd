@@ -29,9 +29,10 @@ func _physics_process(delta):
 	var dir = get_dir().normalized()
 	
 	move_and_slide( dir * speed, Vector2.ZERO, false, 4, 0.9, false )
+	
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.collider
-		if  dir.length() * speed > 1.0: spark(collision.position - self.position)
+#		if  dir.length() * speed > 1.0: spark(collision.position - self.position)
 		if collider is RigidBody2D:
 			collider.apply_impulse( collision.position - collider.position, -collision.normal * dir.length() * speed * 0.1) 

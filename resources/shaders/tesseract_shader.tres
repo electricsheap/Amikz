@@ -120,7 +120,8 @@ void fragment() {
 	vec2 uvs = UV * vec2(TAU);
 	float scale = 1.0;
 	
-	float dist = 2.0 * (1.0 - pow(dist_sq(UV), 0.5));
+	float d = dist_sq(UV /* - 0.5 */);
+	float dist = 2.0 * (1.0 - pow(d, 0.5));
 	
 	float n = dist * noise(vec3(
 		uvs.x/2.0,
@@ -131,7 +132,7 @@ void fragment() {
 	float t = UV.x - UV.y;
 	float b = UV.x + UV.y;
 	
-	COLOR.rgb = vec3(
+	COLOR.rgba = vec4(
 //		(t > + 1.6 || t < - 1.6 || b > 1.6 || -b > 1.6 ) ? 
 //			0.6 : 
 			((n > 0.5) ? 
@@ -144,7 +145,10 @@ void fragment() {
 				n/2.0),
 //		(t > + 1.6 || t < - 1.6 || b > 1.6 || -b > 1.6 )  ? 
 //			0.65 : 
-			(n)
+			(n),
+//			(d < 0.2) ?
+				1.0 //:
+//				0.0
 	);
 }
 

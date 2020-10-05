@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Camera2D",
+"class": "CameraFollow",
+"language": "GDScript",
+"path": "res://resources/scripts/CameraFollow.gd"
+}, {
 "base": "CanvasLayer",
 "class": "Level",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://resources/scripts/Player.gd"
 } ]
 _global_script_class_icons={
+"CameraFollow": "",
 "Level": "",
 "Player": ""
 }
@@ -65,6 +71,7 @@ texture={
 [rendering]
 
 quality/2d/use_pixel_snap=true
+quality/filters/anisotropic_filter_level=1
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0.254902, 0.235294, 0.294118, 1 )
 environment/default_environment="res://default_env.tres"
