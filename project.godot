@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://resources/scripts/Player.gd"
+}, {
+"base": "Polygon2D",
+"class": "TesseractWindow",
+"language": "GDScript",
+"path": "res://resources/scripts/TesseractWindow.gd"
 } ]
 _global_script_class_icons={
 "CameraFollow": "",
 "Level": "",
-"Player": ""
+"Player": "",
+"TesseractWindow": ""
 }
 
 [application]

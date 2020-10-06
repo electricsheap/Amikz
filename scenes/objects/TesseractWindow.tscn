@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/shaders/tesseract_shader.tres" type="Material" id=1]
+[ext_resource path="res://resources/textures/blank.png" type="Texture" id=2]
+[ext_resource path="res://resources/scripts/TesseractWindow.gd" type="Script" id=3]
+
+[node name="TesseractWindow" type="Polygon2D"]
+material = ExtResource( 1 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( -24, -24, -24, 24, 24, 24, 24, -24 )
+uv = PoolVector2Array( 1, 1, 1, -1, -1, -1, -1, 1 )
+script = ExtResource( 3 )
