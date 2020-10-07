@@ -1,7 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
+shader_type canvas_item;
 uniform mat4 global_transform;
 uniform float power;
 varying vec2 world_position;
@@ -15,7 +12,7 @@ vec4 permute_t(vec4 x) {return mod289_4(((x * 34.0) + 1.0) * x);}
 vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 perm(vec4 x){return mod289(((x * 34.0) + 1.0) * x);}
 
-float snoise(vec3 v) { 
+float snoise(vec3 v) {
     vec2 C = vec2(1.0/6.0, 1.0/3.0) ;
     vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
     
@@ -224,10 +221,4 @@ void fragment() {
 void light() {
 // Output:0
 
-}"
-custom_defines = ""
-
-[resource]
-shader = SubResource( 1 )
-shader_param/global_transform = null
-shader_param/power = 1.0
+}

@@ -41,10 +41,8 @@ func _physics_process(delta):
 			var dpos = parallax * ( target.position - self.position )
 			var leashed = dpos * (( dpos.abs() - leash ) / dpos.abs() )
 			if abs( dpos.x ) > leash.x:
-				print( self.parallax )
 				self.position.x += max( leashed.x/4, min( 2, leashed.x ))
 			if abs( dpos.y ) > leash.y:
-				print( self.parallax )
 				self.position.y += max( leashed.y/4, min( 2, leashed.y ))
 			
 

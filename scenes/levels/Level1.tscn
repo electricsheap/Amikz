@@ -1,17 +1,22 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/scripts/Level1.gd" type="Script" id=1]
 [ext_resource path="res://resources/spites/bricks.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/Spike.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/objects/WallBreakable.tscn" type="PackedScene" id=5]
-[ext_resource path="res://resources/shaders/tesseract_shader.tres" type="Material" id=6]
+[ext_resource path="res://scenes/objects/TesseractWindow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/shaders/tesseract.shader" type="Shader" id=6]
 [ext_resource path="res://resources/scripts/CameraFollow.gd" type="Script" id=7]
 [ext_resource path="res://resources/textures/blank.png" type="Texture" id=8]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 6 )
+shader_param/global_transform = null
+shader_param/power = 1.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="PhysicsMaterial" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
 [node name="Level1" type="CanvasLayer"]
@@ -72,10 +77,14 @@ tile_data = PoolIntArray( -3, 6, 65537, -2, 6, 65537, -1, 6, 65537, -65536, 6, 6
 position = Vector2( 178.302, 70.5161 )
 scale = Vector2( 0.2, 0.2 )
 
+[node name="TesseractWindow" parent="." instance=ExtResource( 5 )]
+position = Vector2( 136, 70.5161 )
+scale = Vector2( 4, 4 )
+
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-material = ExtResource( 6 )
+material = SubResource( 1 )
 position = Vector2( 168, -104 )
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 2 )
 gravity_scale = 0.0
 linear_damp = 10.0
 angular_damp = 10.0
@@ -89,10 +98,7 @@ polygon = PoolVector2Array( -16, -16, -16, 16, 16, 16, 16, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 visible = false
-shape = SubResource( 2 )
-
-[node name="WallBreakable" parent="." instance=ExtResource( 5 )]
-position = Vector2( 112, 80 )
+shape = SubResource( 3 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 304, 16 )
