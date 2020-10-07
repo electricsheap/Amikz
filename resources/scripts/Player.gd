@@ -7,7 +7,7 @@ export var speed := 150.0;
 
 func get_dir() -> Vector2:
 	return Vector2(
-		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		ceil(Input.get_action_strength("ui_right")) - ceil(Input.get_action_strength("ui_left")),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	)
 
@@ -26,9 +26,12 @@ func spark(where: Vector2):
 	add_child(spark)
 
 func _physics_process(delta):
-	var dir = get_dir().normalized()
 	
-	move_and_slide( dir * speed, Vector2.ZERO, false, 4, 0.9, false )
+	var dir = get_dir().normalized()
+	position = position.ceil()
+	
+	
+	move_and_slide( dir * speed, Vector2.ZERO, false, 10, 0.9, false )
 	
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
