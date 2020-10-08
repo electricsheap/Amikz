@@ -4,6 +4,7 @@ extends CanvasLayer
 signal change_level( which, passage )
 
 var player: Player;
+var camera: CameraFollow;
 
 func _get_configuration_warning():
 	var flag := false
