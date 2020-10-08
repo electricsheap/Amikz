@@ -41,10 +41,16 @@ func _physics_process(delta):
 			var dpos = parallax * ( target.position - self.position )
 			var leashed = dpos * (( dpos.abs() - leash ) / dpos.abs() )
 			if abs( dpos.x ) > leash.x:
-				self.position.x += max( leashed.x/4, min( 2, leashed.x ))
+				self.position.x += max_abs( leashed.x/4, min_abs( 2, leashed.x ))
 			if abs( dpos.y ) > leash.y:
-				self.position.y += max( leashed.y/4, min( 2, leashed.y ))
-			
+				self.position.y += max_abs( leashed.y/4, min_abs( 2, leashed.y ))
+
+
+func max_abs( a, b ):
+	return a if abs(a) > abs(b) else b
+
+func min_abs( a, b ):
+	return a if abs(a) < abs(b) else b
 
 func snap_to_target():
 	if target != null:

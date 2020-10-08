@@ -48,6 +48,7 @@ window/size/width=384
 window/size/height=256
 window/size/test_width=768
 window/size/test_height=512
+window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
