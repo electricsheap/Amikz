@@ -28,10 +28,9 @@ func spark(where: Vector2):
 func _physics_process(delta):
 	
 	var dir = get_dir().normalized()
-	position = position.ceil()
+	position = (position.ceil() + position.floor())/2.0;
+	move_and_slide( dir * speed, Vector2.ZERO, false, 4, 0.9, false )
 	
-	
-	move_and_slide( dir * speed, Vector2.ZERO, false, 10, 0.9, false )
 	
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
