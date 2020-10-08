@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://resources/shaders/tesseract.shader" type="Shader" id=1]
+[ext_resource path="res://resources/materials/shaders/tesseract.shader" type="Shader" id=1]
 [ext_resource path="res://resources/textures/blank.png" type="Texture" id=2]
 [ext_resource path="res://resources/scripts/TesseractWindow.gd" type="Script" id=3]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )

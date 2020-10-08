@@ -10,5 +10,5 @@ func _ready():
 
 
 func _process(delta):
-	fractal.material.set_shader_param("var", player.position/250
-	)
+	fractal.material.set_shader_param("var", player.position/250)
+	pass
