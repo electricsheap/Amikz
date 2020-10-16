@@ -5,6 +5,8 @@ extends Camera2D
 export (bool) var will_snap := true
 export (Vector2) var leash := Vector2(30, 30)
 export (bool) var circular := false
+export (float) var speed_scale := 0.1
+export (Vector2) var min_speed := Vector2(2,2)
 
 var parallax := Vector2(1.0,1.0)
 
@@ -27,23 +29,19 @@ func _physics_process(delta):
 				var leashed = diff * (( diff_len - leash_len ) / diff_len )
 				self.position += max_vec2( leashed/4, leashed.clamped(2) )
 		else:
-#			var leashed
-#			var dpos = target.position - self.position
-#			var dx = target.position.x - self.position.x
-#			var dy = target.position.y - self.position.y
-#			
-#			if abs( dx ) > leash.x:
-#				leashed = dx * (( abs( dx ) - leash.x ) / abs( dx ))
-#				self.position.x += max( leashed/4, min( 2, leashed ))
-#			if abs( dy ) > leash.y:
-#				leashed = dy * (( abs( dy ) - leash.y ) / abs( dy ))
-#				self.position.y += max( leashed/4, min( 2, leashed ))
+			
+			# calculate the diff of self position and the position of target
+			# mult by parallax for parallax scaling
 			var dpos = parallax * ( target.position - self.position )
-			var leashed = dpos * (( dpos.abs() - leash ) / dpos.abs() )
+			
+			# for x and y, check if the target is farther away than the "leash" on that axis
+			# if so  
+			var dist = Vector2.ZERO
 			if abs( dpos.x ) > leash.x:
-				self.position.x += max( leashed.x/4, min( 2, leashed.x ))
+				dist.x = sign(dpos.x) * clamp(( abs(dpos.x) - leash.x ) * speed_scale, min_speed.x, 10000 )
 			if abs( dpos.y ) > leash.y:
-				self.position.y += max( leashed.y/4, min( 2, leashed.y ))
+				dist.y = sign(dpos.y) * clamp(( abs(dpos.y) - leash.y ) * speed_scale, min_speed.y, 10000 )
+			position += dist * delta * 60
 
 
 func max_abs( a, b ):

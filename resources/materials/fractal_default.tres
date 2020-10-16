@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://resources/materials/shaders/frac.shader" type="Shader" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.291667, 0.730556, 1 )
+colors = PoolColorArray( 0.0639954, 0.0253906, 0.25, 1, 0.363145, 0.0712433, 0.628906, 1, 0.771035, 0.181327, 0.181327, 1, 0.980469, 0.761943, 0.206818, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 100
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/iter = 50
+shader_param/var = Vector2( 2, 1 )
+shader_param/where = Vector2( -0.57, 0 )
+shader_param/zoom = 1.0
+shader_param/which = true
+shader_param/power = 2.0
+shader_param/bound = 4.0
+shader_param/tex = SubResource( 2 )

@@ -3,7 +3,6 @@
 [ext_resource path="res://resources/materials/shaders/frac.shader" type="Shader" id=1]
 [ext_resource path="res://resources/textures/blank.png" type="Texture" id=2]
 
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.13198, 0.373096, 0.626904, 0.832487, 1 )
 colors = PoolColorArray( 0.0876519, 0.0187616, 0.203876, 1, 0.19817, 0.0424176, 0.460938, 1, 0.357145, 0.100038, 0.428331, 1, 0.709043, 0.243354, 0.195748, 1, 0.791074, 0.520068, 0.118095, 1, 0.869199, 0.761126, 0.456818, 1 )
@@ -19,6 +18,7 @@ shader_param/where = Vector2( 0.388, -0.274 )
 shader_param/zoom = 0.0
 shader_param/which = false
 shader_param/power = 2.0
+shader_param/bound = null
 shader_param/tex = SubResource( 2 )
 
 [node name="Frac" type="Polygon2D"]
