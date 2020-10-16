@@ -19,7 +19,7 @@ func set_staff_target( pos: Vector2 ):
 	var fire_ball = fire_ball_packed.instance()
 	fire_ball.position = position - dir.normalized() * 30
 	fire_ball.velocity = -dir.normalized() * 200
-	fire_ball.rotation = fire_ball.velocity.angle() - PI
+	fire_ball.rotation = (-dir).angle() - PI
 	get_parent().add_child(fire_ball)
 	
 	staff.position = - dir.normalized() * 10

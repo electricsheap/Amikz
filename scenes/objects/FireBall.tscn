@@ -240,7 +240,7 @@ shape = SubResource( 1 )
 [node name="Particles2D" type="Particles2D" parent="."]
 z_index = -1
 amount = 16
-speed_scale = 4.0
+speed_scale = 8.0
 process_material = SubResource( 5 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
